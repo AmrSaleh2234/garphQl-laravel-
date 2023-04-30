@@ -1,14 +1,22 @@
 extend type Mutation {
     "create user."
     createUser(
-        name: String!
-        email:String!
-        password: String!
+        name: String! @rules(apply: ["required"])
+        email:String! @rules(apply: ["required"])
+        password: String! @rules(apply: ["required"]) @hash
     ): User! @create
     updateUser(
-        id:ID!
+        id:ID! @rules(apply: ["required"])
         name: String
         email:String
-        password: String
+        password: String @hash
     ): User! @update
+
+    login(
+        email:String!
+        password:String!
+    ):String!
+
+    logout:User @auth
+
 }
