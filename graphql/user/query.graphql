@@ -14,5 +14,12 @@ extend type Query {
 
     ): [User!]! @paginate(defaultCount: 10)
 
+
+    attendances(
+        user_id:Int @eq
+
+    ): [Attendance!]! @all
+
+
     me:User! @auth
 }

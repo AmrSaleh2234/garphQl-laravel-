@@ -1,0 +1,21 @@
+#extend type Mutation {
+#    "create user."
+#    createAttendance(
+#        user_id: Int! @rules(apply: ["required"])
+#        date:Date! @rules(apply: ["required" ])
+#        password: String! @rules(apply: ["required"]) @hash
+#    ): User! @create
+#    updateAttendance(
+#        id:ID! @rules(apply: ["required"])
+#        name: String @rules(apply: [ "email", "unique:users,email"])
+#        email:String
+#        password: String @hash
+#    ): User! @update
+#
+#    deleteAttendance(
+#        id:ID! @eq @rules(apply: ["required"])
+#    ): User! @delete
+#
+#
+#
+#}

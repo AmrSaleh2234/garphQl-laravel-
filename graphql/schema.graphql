@@ -1,7 +1,61 @@
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+scalar JSON @scalar(class: "MLL\\GraphQLScalars\\JSON")
+scalar Mixed @scalar(class: "MLL\\GraphQLScalars\\MixedScalar")
+
 type Query
 type Mutation
+type User {
+    "Unique primary key."
+    id: ID!
+
+    "Non-unique name."
+    name: String!
+
+    "Unique email address."
+    email: String!
+
+    password: String!
+
+    attendance:[Attendance!]! @hasMany(relation: "attendance")
+
+    "When the email was verified."
+    email_verified_at: DateTime
+
+    "When the account was created."
+    created_at: DateTime!
+
+    "When the account was last updated."
+    updated_at: DateTime!
+}
+
+type Attendance {
+    "Unique primary key."
+    id: ID
+
+    "Non-unique name."
+    date: Date
+
+    "return time."
+    attendance: Mixed
+
+    departure: Mixed
+
+
+    "difference is attendance - departure to calculate overtime or any thing else"
+    difference:Float
+
+    user_id:User! @belongsTo(relation: "user")
+
+    "When the account was created."
+    created_at: DateTime
+
+    "When the account was last updated."
+    updated_at: DateTime
+}
+#import attendance/*.graphql
 #import user/*.graphql
+
 
 

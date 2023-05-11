@@ -1,0 +1,15 @@
+extend type Query {
+    "Find a single user by an identifying attribute."
+
+#    attendance(
+#        id: ID @eq
+#    ):Attendance @find
+
+
+#    attendances(
+#        user_id:Int @eq
+#
+#    ): [Attendance!]! @all
+
+
+}
