@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class AttendanceRepository
 {
-    public static function getLastAttendanceFoUser($user_id) :Attendance
+    public static function getLastAttendanceFoUser($user_id) :string
     {
         return Attendance::where("user_id", $user_id)
             ->orderBy("date", "DESC")
