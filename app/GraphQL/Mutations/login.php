@@ -16,7 +16,6 @@ final class login
     public function __invoke($_, array $args)
     {
 
-
         $user = User::where('email', $args['email'])->first();
         if(!$user || !Hash::check($args['password'],$user->password) ){
             return "credential un correct ";
