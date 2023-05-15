@@ -1,4 +1,4 @@
-extend type Mutation {
+ type Mutation {
     "create user."
     createUser(
         name: String! @rules(apply: ["required"])
@@ -18,5 +18,7 @@ extend type Mutation {
     ):String!
     updateAttendance(user_id:Int!):AttendanceUpdated
     logout:User @auth
+
+     createAttendance(user_id:Int! ):Attendance!
 
 }
