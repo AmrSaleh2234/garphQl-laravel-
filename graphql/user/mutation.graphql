@@ -16,7 +16,7 @@ extend type Mutation {
         email:String!
         password:String!
     ):String!
-
+    updateAttendance(user_id:Int!):AttendanceUpdated
     logout:User @auth
 
 }

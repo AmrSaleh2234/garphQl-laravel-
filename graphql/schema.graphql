@@ -54,6 +54,10 @@ type Attendance {
     "When the account was last updated."
     updated_at: DateTime
 }
+type AttendanceUpdated{
+    attendance:Attendance
+    status:Boolean!
+}
 #import attendance/*.graphql
 #import user/*.graphql
 
